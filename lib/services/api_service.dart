@@ -5,7 +5,7 @@ class ApiService {
   static const String baseUrl = 'http://your_flask_backend_url/api/';
 
   Future<List<dynamic>> fetchSermons() async {
-    final response = await http.get(Uri.parse(baseUrl + 'sermons'));
+    final response = await http.get(Uri.parse('${baseUrl}sermons'));
 
     if (response.statusCode == 200) {
       // If the server returns a 200 response, parse the JSON.

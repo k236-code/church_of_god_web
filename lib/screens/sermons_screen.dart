@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../services/firestore_service.dart';
 
 class SermonsScreen extends StatefulWidget {
+  const SermonsScreen({super.key});
+
   @override
   _SermonsScreenState createState() => _SermonsScreenState();
 }

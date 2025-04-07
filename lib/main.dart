@@ -16,6 +16,8 @@ void main() async {
 }
 
 class ChurchApp extends StatelessWidget {
+  const ChurchApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
