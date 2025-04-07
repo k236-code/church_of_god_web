@@ -31,3 +31,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHURCH_OF_GOD_WEB }}"
           channelId: live
           projectId: church-of-god-web
+
