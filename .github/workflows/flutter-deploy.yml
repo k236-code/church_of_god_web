@@ -3,7 +3,7 @@ name: Flutter Web Deployment to Firebase Hosting
 on:
   push:
     branches:
-      - main  # Set the branch to trigger the deployment
+      - main
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'latest'
+          flutter-version: '3.19.6'
 
       - name: Install dependencies
         run: flutter pub get
@@ -27,4 +27,4 @@ jobs:
       - name: Deploy to Firebase Hosting
         run: firebase deploy --only hosting
         env:
-          FIREBASE_AUTH_TOKEN: ${{ secrets.FIREBASE_AUTH_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
