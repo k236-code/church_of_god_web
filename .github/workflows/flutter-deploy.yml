@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.1'
+          flutter-version: '3.19.1'  # ✅ Pin Flutter version here
 
       - name: Install dependencies
         run: flutter pub get
@@ -25,6 +25,9 @@ jobs:
         run: flutter build web
 
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHURCH_OF_GOD_WEB }}"
+          channelId: live
+          projectId: church-of-god-web
